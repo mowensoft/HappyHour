@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B02AFA4-5A5D-43FB-B136-63306E623BAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HappyHour</RootNamespace>
+    <AssemblyName>HappyHour</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nancy">
+      <HintPath>..\packages\Nancy.0.23.2\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.2.5.2916\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.2.5.2916\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\VotingException.cs" />
+    <Compile Include="Exceptions\VotingNotAllowedException.cs" />
+    <Compile Include="Infrastructure\Bootstrapper.cs" />
+    <Compile Include="Infrastructure\SystemTime.cs" />
+    <Compile Include="Models\Ballot.cs" />
+    <Compile Include="Models\Venue.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Modules\UsersModule.cs" />
+    <Compile Include="Modules\VenuesModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetUpcomingBallotQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".bowerrc" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Scripts\angular-bootstrap\.bower.json" />
+    <None Include="Scripts\angular-bootstrap\bower.json" />
+    <None Include="Scripts\angular-google-maps\.bower.json" />
+    <None Include="Scripts\angular-google-maps\.travis.yml" />
+    <None Include="Scripts\angular-google-maps\bower.json" />
+    <None Include="Scripts\angular-google-maps\circle.yml" />
+    <None Include="Scripts\angular-google-maps\clean" />
+    <None Include="Scripts\angular-google-maps\coffeelint.json" />
+    <None Include="Scripts\angular-google-maps\Gruntfile.coffee" />
+    <None Include="Scripts\angular-google-maps\GruntJasmineSettings.coffee" />
+    <None Include="Scripts\angular-google-maps\GruntOptions.coffee" />
+    <None Include="Scripts\angular-google-maps\package.json" />
+    <None Include="Scripts\angular-google-maps\README.markdown" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\bootstrap.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\control.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\map.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\marker.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\markers.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\child\marker-child-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\child\window-child-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\i-marker-parent.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\layer-parent-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\map-type-parent-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\markers-parent-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\markers-parent.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\search-box-parent-model.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\models\parent\windows-parent.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\options\marker-options.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\polygon.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\base-object.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\events-helper.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\gmap-util.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\model-key.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\prop-map.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\utils\_async.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\directives\api\window.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\helpers\google-api-mock.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\helpers\google-map-spec-controller.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\helpers\initiator.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\usage\underscore.difference.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\usage\underscore.indexOfObject.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\usage\underscore.intersection.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\coffee\usage\underscore.isEqual.spec.coffee" />
+    <None Include="Scripts\angular-google-maps\spec\js\.keep" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\circle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\control.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\drawing-manager.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\free-draw-polygons.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-circle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-control.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-drawing-manager.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-marker.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-polygon.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-polyline.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-rectangle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\i-window.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\managers\clusterer-marker-manager.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\managers\marker-manager.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\map.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\marker.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\markers.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\child\free-draw-polygons-child.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\child\marker-child-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\child\polygon-child-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\child\polyline-child-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\child\window-child-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\circle-parent-mode.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\drawing-manager-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\i-marker-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\i-window-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\layer-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\map-type-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\markers-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\polylines-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\rectangle-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\search-box-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\models\parent\windows-parent-model.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\options\builders\common-options-builder.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\options\builders\options-builders.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\options\marker-options.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\polygon.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\polyline.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\polylines.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\rectangle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\base-object.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\child-events.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\ctrl-handle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\events-helper.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\fit-helper.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\gmap-util.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\is-ready.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\linked.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\logger.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\model-key.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\models-watcher.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\prop-map.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\property-action.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\utils\_async.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\window.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\api\windows.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\circle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\control.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\controllers\polyline-display.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\drawing-manager.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\free-draw-polygons.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\layer.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\map-type.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\map.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\marker.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\markers.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\polygon.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\polyline.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\polylines.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\rectangle.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\search-box.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\window.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\directives\windows.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\extensions\google.maps.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\extensions\lodash.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\extensions\string.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\module.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\providers\map-loader.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\utils\add-events.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\utils\array-sync.coffee" />
+    <None Include="Scripts\angular-google-maps\src\coffee\utils\chrome-fixes.coffee" />
+    <None Include="Scripts\angular-google-maps\src\js\.gitkeep" />
+    <None Include="Scripts\angular-google-maps\src\js\directives\.gitkeep" />
+    <None Include="Scripts\angular-google-maps\src\js\directives\api\managers\.gitkeep" />
+    <None Include="Scripts\angular-google-maps\src\js\directives\api\models\.gitkeep" />
+    <None Include="Scripts\angular-google-maps\src\js\directives\api\utils\.gitkeep" />
+    <None Include="Scripts\angular\.bower.json" />
+    <None Include="Scripts\angular\angular.min.js.gzip" />
+    <None Include="Scripts\angular\angular.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\angular\bower.json" />
+    <None Include="Scripts\angular\package.json" />
+    <None Include="Scripts\angular\README.md" />
+    <None Include="Scripts\bluebird\.bower.json" />
+    <None Include="Scripts\bluebird\API.md" />
+    <None Include="Scripts\bluebird\bench" />
+    <None Include="Scripts\bluebird\bower.json" />
+    <None Include="Scripts\bluebird\browser\setup" />
+    <None Include="Scripts\bluebird\changelog.md" />
+    <None Include="Scripts\bluebird\CONTRIBUTING.md" />
+    <None Include="Scripts\bluebird\deprecated_apis.md" />
+    <None Include="Scripts\bluebird\LICENSE" />
+    <None Include="Scripts\bluebird\package.json" />
+    <None Include="Scripts\bluebird\README.md" />
+    <None Include="Scripts\jquery\.bower.json" />
+    <None Include="Scripts\jquery\bower.json" />
+    <None Include="Scripts\jquery\dist\jquery.min.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\jquery\src\sizzle\dist\sizzle.min.map" />
+    <None Include="Scripts\lodash\.bower.json" />
+    <None Include="Scripts\lodash\bower.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\app.config.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\app.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\venues\venues.controller.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\venues\venues.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\css\app.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\css\normalize.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-bootstrap\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-bootstrap\ui-bootstrap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\angular-google-maps\.gitignore" />
+    <Content Include="Scripts\angular-google-maps\dist\angular-google-maps.js" />
+    <Content Include="Scripts\angular-google-maps\dist\angular-google-maps.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\angular-google-maps\example\.gitignore" />
+    <Content Include="Scripts\angular-google-maps\example\assets\images\blue_marker.png" />
+    <Content Include="Scripts\angular-google-maps\example\assets\images\cluster1.png" />
+    <Content Include="Scripts\angular-google-maps\example\assets\images\plane.png" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\dynamic-map-height.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\example.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\free-draw-polygons.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\geojson.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\hugedata.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-154-marker-fit.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-157-ng-click.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-322.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-354-window-windows-rerender-content.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-371-polygon-ng-repeat.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-382-window-windows-ng-show.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-393-cluster-events-mapped.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-432-markers-fit-clustering.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-482-markers-animation-clustering.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-482-markers-animation.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-484-markers-self.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-495-polyline-fit.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-498-marker-move-loaded.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-504-markers-flash.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-507-windows-show-w-marker-broken.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-522-polyline-no-paths.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-534-markers-child-destroy.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-538-window-plus1.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-545-marker-flash.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-621-owl-w-window.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-621-owl.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-622-many-markers-destroy.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-624-drawing-manager.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-654-marker-events-break-after-added.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-663-marker-events-once.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-686-window-options.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-725-polyline-dupes.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-728-windows-angular-1_3.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-74-markers-events.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-751-783-marker-coords-undefined-dragg.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-753-marker-not-watched.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-755-ng-router.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\issue-772-info-window-show-state.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\marker-anchor.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\overlay-map-type.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\search-box.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\shapes-lines.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\templates\info.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\controllers\two-maps.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\scripts\mocks\heat-layer.js" />
+    <Content Include="Scripts\angular-google-maps\example\assets\stylesheets\dynamic-height.css" />
+    <Content Include="Scripts\angular-google-maps\example\assets\stylesheets\example.css" />
+    <Content Include="Scripts\angular-google-maps\example\assets\stylesheets\geojson.css" />
+    <Content Include="Scripts\angular-google-maps\example\assets\stylesheets\hugedata.css" />
+    <Content Include="Scripts\angular-google-maps\example\assets\stylesheets\search-box-example.css" />
+    <Content Include="Scripts\angular-google-maps\example\assets\templates\info.html" />
+    <Content Include="Scripts\angular-google-maps\example\assets\templates\issue-755-ng-router.html" />
+    <Content Include="Scripts\angular-google-maps\example\dynamic-map-height.html" />
+    <Content Include="Scripts\angular-google-maps\example\example.html" />
+    <Content Include="Scripts\angular-google-maps\example\free-draw-polygons.html" />
+    <Content Include="Scripts\angular-google-maps\example\geojson.html" />
+    <Content Include="Scripts\angular-google-maps\example\hugedata.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-154-marker-fit.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-157-ng-click.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-322.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-354-window-windows-rerender-content.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-371-polygon-ng-repeat.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-382-window-windows-ng-show.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-393-cluster-events-mapped.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-432-markers-fit-clustering.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-482-markers-animation-clustering.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-482-markers-animation.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-484-markers-self.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-495-polyline-fit.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-498-marker-move-loaded.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-504-markers-flash.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-507-windows-show-w-marker-broken.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-522-polyline-no-paths.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-534-markers-child-destroy.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-538-window-plus1.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-545-marker-flash-clusterer.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-545-marker-flash.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-572-polylines-no-paths.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-621-owl-w-window.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-621-owl.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-622-many-markers-destroy.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-624-drawing-manager.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-654-marker-events-break-after-added.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-663-marker-events-once.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-686-window-options.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-725-polyline-dupes.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-728-windows-angular-1_3.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-74-markers-events.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-751-783-marker-coords-undefined-dragg.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-753-marker-not-watched.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-755-ng-router.html" />
+    <Content Include="Scripts\angular-google-maps\example\issue-772-info-window-show-state.html" />
+    <Content Include="Scripts\angular-google-maps\example\marker-anchor.html" />
+    <Content Include="Scripts\angular-google-maps\example\overlay-map-type.html" />
+    <Content Include="Scripts\angular-google-maps\example\search-box.html" />
+    <Content Include="Scripts\angular-google-maps\example\shapes-lines.html" />
+    <Content Include="Scripts\angular-google-maps\example\two-maps.html" />
+    <Content Include="Scripts\angular-google-maps\lib\infobox.js" />
+    <Content Include="Scripts\angular-google-maps\lib\markerclusterer.js" />
+    <Content Include="Scripts\angular-google-maps\lib\markerwithlabel.js" />
+    <Content Include="Scripts\angular-google-maps\src\js\extensions\markerclusterer.js" />
+    <Content Include="Scripts\angular-google-maps\src\js\wrapped\google-maps-util-v3.js" />
+    <Content Include="Scripts\angular-google-maps\src\js\wrapped\uuid.core.js" />
+    <Content Include="Scripts\angular-ui-router\angular-ui-router.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\angular\angular-csp.css" />
+    <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\angular\angular.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bluebird\ast_passes.js" />
+    <Content Include="Scripts\bluebird\browser\bundle.js" />
+    <Content Include="Scripts\bluebird\browser\bundler.js" />
+    <Content Include="Scripts\bluebird\browser\do_run.js" />
+    <Content Include="Scripts\bluebird\browser\es5-sham.js" />
+    <Content Include="Scripts\bluebird\browser\es5-shim.js" />
+    <Content Include="Scripts\bluebird\browser\have_getters.js" />
+    <Content Include="Scripts\bluebird\browser\index.html" />
+    <Content Include="Scripts\bluebird\browser\init_run.js" />
+    <Content Include="Scripts\bluebird\browser\json.js" />
+    <Content Include="Scripts\bluebird\browser\mocha.css" />
+    <Content Include="Scripts\bluebird\browser\mocha.js" />
+    <Content Include="Scripts\bluebird\browser\mocha_init.js" />
+    <Content Include="Scripts\bluebird\bundle.js" />
+    <Content Include="Scripts\bluebird\Gruntfile.js" />
+    <Content Include="Scripts\bluebird\js\browser\bluebird.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bluebird\logo.png" />
+    <Content Include="Scripts\bluebird\mocharun.js" />
+    <Content Include="Scripts\bluebird\src\any.js" />
+    <Content Include="Scripts\bluebird\src\assert.js" />
+    <Content Include="Scripts\bluebird\src\async.js" />
+    <Content Include="Scripts\bluebird\src\bluebird.js" />
+    <Content Include="Scripts\bluebird\src\call_get.js" />
+    <Content Include="Scripts\bluebird\src\cancel.js" />
+    <Content Include="Scripts\bluebird\src\captured_trace.js" />
+    <Content Include="Scripts\bluebird\src\catch_filter.js" />
+    <Content Include="Scripts\bluebird\src\constants.js" />
+    <Content Include="Scripts\bluebird\src\direct_resolve.js" />
+    <Content Include="Scripts\bluebird\src\each.js" />
+    <Content Include="Scripts\bluebird\src\errors.js" />
+    <Content Include="Scripts\bluebird\src\errors_api_rejection.js" />
+    <Content Include="Scripts\bluebird\src\es5.js" />
+    <Content Include="Scripts\bluebird\src\filter.js" />
+    <Content Include="Scripts\bluebird\src\finally.js" />
+    <Content Include="Scripts\bluebird\src\generators.js" />
+    <Content Include="Scripts\bluebird\src\join.js" />
+    <Content Include="Scripts\bluebird\src\map.js" />
+    <Content Include="Scripts\bluebird\src\nodeify.js" />
+    <Content Include="Scripts\bluebird\src\progress.js" />
+    <Content Include="Scripts\bluebird\src\promise.js" />
+    <Content Include="Scripts\bluebird\src\promise_array.js" />
+    <Content Include="Scripts\bluebird\src\promise_resolver.js" />
+    <Content Include="Scripts\bluebird\src\promisify.js" />
+    <Content Include="Scripts\bluebird\src\props.js" />
+    <Content Include="Scripts\bluebird\src\queue.js" />
+    <Content Include="Scripts\bluebird\src\race.js" />
+    <Content Include="Scripts\bluebird\src\reduce.js" />
+    <Content Include="Scripts\bluebird\src\schedule.js" />
+    <Content Include="Scripts\bluebird\src\settle.js" />
+    <Content Include="Scripts\bluebird\src\some.js" />
+    <Content Include="Scripts\bluebird\src\synchronous_inspection.js" />
+    <Content Include="Scripts\bluebird\src\thenables.js" />
+    <Content Include="Scripts\bluebird\src\timers.js" />
+    <Content Include="Scripts\bluebird\src\using.js" />
+    <Content Include="Scripts\bluebird\src\util.js" />
+    <Content Include="Scripts\foursquare\foursquare.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery\dist\jquery.js" />
+    <Content Include="Scripts\jquery\dist\jquery.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery\MIT-LICENSE.txt" />
+    <Content Include="Scripts\jquery\src\ajax.js" />
+    <Content Include="Scripts\jquery\src\ajax\jsonp.js" />
+    <Content Include="Scripts\jquery\src\ajax\load.js" />
+    <Content Include="Scripts\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Scripts\jquery\src\ajax\parseXML.js" />
+    <Content Include="Scripts\jquery\src\ajax\script.js" />
+    <Content Include="Scripts\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Scripts\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Scripts\jquery\src\ajax\xhr.js" />
+    <Content Include="Scripts\jquery\src\attributes.js" />
+    <Content Include="Scripts\jquery\src\attributes\attr.js" />
+    <Content Include="Scripts\jquery\src\attributes\classes.js" />
+    <Content Include="Scripts\jquery\src\attributes\prop.js" />
+    <Content Include="Scripts\jquery\src\attributes\support.js" />
+    <Content Include="Scripts\jquery\src\attributes\val.js" />
+    <Content Include="Scripts\jquery\src\callbacks.js" />
+    <Content Include="Scripts\jquery\src\core.js" />
+    <Content Include="Scripts\jquery\src\core\access.js" />
+    <Content Include="Scripts\jquery\src\core\init.js" />
+    <Content Include="Scripts\jquery\src\core\parseHTML.js" />
+    <Content Include="Scripts\jquery\src\core\ready.js" />
+    <Content Include="Scripts\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Scripts\jquery\src\css.js" />
+    <Content Include="Scripts\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Scripts\jquery\src\css\curCSS.js" />
+    <Content Include="Scripts\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Scripts\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Scripts\jquery\src\css\support.js" />
+    <Content Include="Scripts\jquery\src\css\swap.js" />
+    <Content Include="Scripts\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Scripts\jquery\src\css\var\getStyles.js" />
+    <Content Include="Scripts\jquery\src\css\var\isHidden.js" />
+    <Content Include="Scripts\jquery\src\css\var\rmargin.js" />
+    <Content Include="Scripts\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Scripts\jquery\src\data.js" />
+    <Content Include="Scripts\jquery\src\data\accepts.js" />
+    <Content Include="Scripts\jquery\src\data\Data.js" />
+    <Content Include="Scripts\jquery\src\data\var\data_priv.js" />
+    <Content Include="Scripts\jquery\src\data\var\data_user.js" />
+    <Content Include="Scripts\jquery\src\deferred.js" />
+    <Content Include="Scripts\jquery\src\deprecated.js" />
+    <Content Include="Scripts\jquery\src\dimensions.js" />
+    <Content Include="Scripts\jquery\src\effects.js" />
+    <Content Include="Scripts\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Scripts\jquery\src\effects\Tween.js" />
+    <Content Include="Scripts\jquery\src\event.js" />
+    <Content Include="Scripts\jquery\src\event\alias.js" />
+    <Content Include="Scripts\jquery\src\event\support.js" />
+    <Content Include="Scripts\jquery\src\exports\amd.js" />
+    <Content Include="Scripts\jquery\src\exports\global.js" />
+    <Content Include="Scripts\jquery\src\intro.js" />
+    <Content Include="Scripts\jquery\src\jquery.js" />
+    <Content Include="Scripts\jquery\src\manipulation.js" />
+    <Content Include="Scripts\jquery\src\manipulation\support.js" />
+    <Content Include="Scripts\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Scripts\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Scripts\jquery\src\offset.js" />
+    <Content Include="Scripts\jquery\src\outro.js" />
+    <Content Include="Scripts\jquery\src\queue.js" />
+    <Content Include="Scripts\jquery\src\queue\delay.js" />
+    <Content Include="Scripts\jquery\src\selector-native.js" />
+    <Content Include="Scripts\jquery\src\selector-sizzle.js" />
+    <Content Include="Scripts\jquery\src\selector.js" />
+    <Content Include="Scripts\jquery\src\serialize.js" />
+    <Content Include="Scripts\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Scripts\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Scripts\jquery\src\traversing.js" />
+    <Content Include="Scripts\jquery\src\traversing\findFilter.js" />
+    <Content Include="Scripts\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Scripts\jquery\src\var\arr.js" />
+    <Content Include="Scripts\jquery\src\var\class2type.js" />
+    <Content Include="Scripts\jquery\src\var\concat.js" />
+    <Content Include="Scripts\jquery\src\var\hasOwn.js" />
+    <Content Include="Scripts\jquery\src\var\indexOf.js" />
+    <Content Include="Scripts\jquery\src\var\pnum.js" />
+    <Content Include="Scripts\jquery\src\var\push.js" />
+    <Content Include="Scripts\jquery\src\var\rnotwhite.js" />
+    <Content Include="Scripts\jquery\src\var\slice.js" />
+    <Content Include="Scripts\jquery\src\var\strundefined.js" />
+    <Content Include="Scripts\jquery\src\var\support.js" />
+    <Content Include="Scripts\jquery\src\var\toString.js" />
+    <Content Include="Scripts\jquery\src\wrap.js" />
+    <Content Include="Scripts\lodash\dist\lodash.compat.js" />
+    <Content Include="Scripts\lodash\dist\lodash.compat.min.js" />
+    <Content Include="Scripts\lodash\dist\lodash.js" />
+    <Content Include="Scripts\lodash\dist\lodash.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\lodash\dist\lodash.underscore.js" />
+    <Content Include="Scripts\lodash\dist\lodash.underscore.min.js" />
+    <Content Include="Scripts\lodash\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
